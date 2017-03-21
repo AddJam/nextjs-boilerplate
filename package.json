@@ -1,0 +1,48 @@
+{
+  "name": "workfinder",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "glamor": "^2.20.24",
+    "next": "^2.0.0-beta",
+    "next-connect-redux": "^0.1.2",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "redux": "^3.6.0",
+    "redux-action-buffer": "^1.0.1",
+    "redux-actions": "^2.0.1",
+    "redux-persist": "^4.5.0",
+    "redux-saga": "^0.14.3"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-define": "^1.2.0",
+    "localforage": "^1.5.0",
+    "reactotron-apisauce": "^1.9.1",
+    "reactotron-react-js": "^1.9.1",
+    "reactotron-redux": "^1.9.1",
+    "reactotron-redux-saga": "^1.9.1"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "babel": {
+    "presets": [
+      "next/babel"
+    ],
+    "plugins": [
+      [
+        "transform-define",
+        "./env-config.js"
+      ]
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AddJam/workfinder.git"
+  },
+  "license": "ISC"
+}
