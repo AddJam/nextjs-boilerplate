@@ -26,5 +26,4 @@ const configureReactotron = () => {
   return tron
 }
 
-const reactotronInstance = configureReactotron()
-export default reactotronInstance
+export default configureReactotron

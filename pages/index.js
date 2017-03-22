@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
+import Link from 'next/link'
 import { bindActionCreators } from 'redux'
 import { nextConnect } from '../src/config/store'
 import {
   postsSelector, postsLoadingSelector, fetchSubreddit
 } from '../src/modules/reddit'
+import { nameSelector } from '../src/modules/user'
 import { style, rehydrate } from 'glamor'
 
 // Adds server generated styles to glamor cache.
 // Has to run before any `style()` calls
 // '__NEXT_DATA__.ids' is set in '_document.js'
 if (typeof window !== 'undefined') {
+  // Rehydrate styles
   rehydrate(window.__NEXT_DATA__.ids)
 }
 
@@ -38,11 +41,13 @@ class IndexPage extends Component {
   }
 
   render () {
-    const { loading, posts, fetchSubreddit } = this.props
+    const { loading, name, posts, fetchSubreddit } = this.props
 
     return (
       <div {...styles.page}>
         <h1>On r/{this.state.subreddit}:</h1>
+        <p>Hi, {name}</p>
+        <Link href='/profile'><a>Profile</a></Link>
         <div>
           <input
             value={this.state.subreddit}
@@ -78,7 +83,8 @@ const styles = {
 
 const mapStateToProps = (state) => ({
   posts: postsSelector(state),
-  loading: postsLoadingSelector(state)
+  loading: postsLoadingSelector(state),
+  name: nameSelector(state)
 })
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({

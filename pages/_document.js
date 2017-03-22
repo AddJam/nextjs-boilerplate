@@ -15,7 +15,9 @@ export default class MyDocument extends Document {
       __NEXT_DATA__.ids = this.props.ids
     }
 
-    __NEXT_DATA__.redux = store.getState()
+    if (store) {
+      __NEXT_DATA__.redux = store.getState()
+    }
   }
 
   render () {

@@ -6,5 +6,8 @@ export default function * fetchSubredditPosts ({payload}) {
   const { subreddit, onComplete } = payload
   const posts = yield call(api.fetchPosts, subreddit)
   yield put(didFetchSubreddit({posts}))
-  yield call(onComplete)
+
+  if (onComplete != null) {
+    yield call(onComplete)
+  }
 }
